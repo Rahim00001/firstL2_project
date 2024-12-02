@@ -42,6 +42,7 @@ const userNameValidationSchema = z.object({
   // Main Student Schema
   const studentValidationSchema = z.object({
     id: z.string().min(1,"Student ID is required"),
+    password: z.string().min(1,"Password is required").max(20),
     name: userNameValidationSchema,
     gender: z.enum(["male", "female"], { errorMap: () => ({ message: "Invalid gender" }) }),
     dateOfBirth: z.string().optional(),
